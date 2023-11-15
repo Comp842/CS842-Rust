@@ -1,125 +1,49 @@
+mod SimpleLinkedList;
+mod TestObject;
+mod AdvancedLinkedList;
+mod TestSuite1;
+mod Timer;
+mod TestSuite2;
+mod TestSuite3;
+mod TestSuite4;
+
 use std::mem;
 use std::rc::Rc;
 use std::time::Instant;
 
 fn main() {
-    // test1();
-    test2();
-}
+    TestSuite1::test1();
+    TestSuite1::test2();
+    TestSuite1::test3();
+    TestSuite1::test4();
+    TestSuite1::test5();
+    TestSuite1::test6();
+    TestSuite1::test7();
 
+    TestSuite2::test1();
+    TestSuite2::test2();
+    TestSuite2::test3();
+    TestSuite2::test4();
+    TestSuite2::test5();
+    TestSuite2::test6();
+    TestSuite2::test7();
 
-fn expensive_function() {
-    let num_assignments = 1000000000;
+    TestSuite3::test1();
+    TestSuite3::test2();
+    TestSuite3::test3();
+    TestSuite3::test4();
+    TestSuite3::test5();
+    TestSuite3::test6();
+    TestSuite3::test7();
+    TestSuite3::test8();
+    TestSuite3::test9();
 
-    // Create an integer value and wrap it in a Box and an Rc
-    let value: i32 = 0;
-    let mut boxed_value = Box::new(value);
-
-    for _ in 0..num_assignments {
-        *boxed_value = 42;
-    }
-}
-fn expensive_function2(){
-    let value: i32 = 0;
-
-    let num_assignments = 1000000000;
-    let rc_value = Rc::new(value);
-
-    for _ in 0..num_assignments {
-        let _cloned_rc = rc_value.clone();
-    }
-}
-
-fn expensive_function3() {
-    let num_assignments = 1000000000;
-
-    // Create a mutable integer variable and a mutable pointer to it
-    let mut value: i32 = 0;
-    let mut pointer: *mut i32 = &mut value as *mut i32;
-
-    // Perform the pointer assignments
-    for _ in 0..num_assignments {
-        unsafe {
-            *pointer = 42;
-        }
-    }
-}
-
-fn expensive_function4() {
-    let num_assignments = 1000000000;
-
-    // Create a mutable integer variable and a mutable pointer to it
-    let mut value: i32 = 0;
-
-    // Perform the pointer assignments
-    for _ in 0..num_assignments {
-            value = 42;
-    }
-}
-
-fn test1(){
-    let start = Instant::now();
-    expensive_function();
-    let duration = start.elapsed();
-
-    println!("Time elapsed in expensive_function() is: {:?}", duration);
-
-    let start = Instant::now();
-    expensive_function2();
-    let duration = start.elapsed();
-
-    println!("Time elapsed in expensive_function2() is: {:?}", duration);
-
-    let start = Instant::now();
-    expensive_function3();
-    let duration = start.elapsed();
-
-    println!("Time elapsed in expensive_function3() is: {:?}", duration);
-
-    let start = Instant::now();
-    expensive_function4();
-    let duration = start.elapsed();
-
-    println!("Time elapsed in expensive_function4() is: {:?}", duration);
-}
-
-fn test2(){
-    let start = Instant::now();
-
-    // Number of objects to create
-    let num_objects = 1000000000;
-
-    // Create and discard objects (young generation)
-    for _ in 0..num_objects {
-        let obj = Box::new(0); // Box represents a heap-allocated object
-        // Simulate some usage or operations with the object
-    }
-
-    // Trigger the collection of objects (young generation)
-    // Sleep to mimic the garbage collection process (for demonstration purposes)
-    let mut vec = Vec::new();
-    vec.push(1);
-    drop(vec); // This will free objects created in the previous loop
-
-    std::thread::sleep(std::time::Duration::from_secs(100));
-
-    // Create more objects to promote some to the old generation
-    for _ in 0..num_objects {
-        let obj = Box::new(0);
-        // Simulate some usage or operations with the object
-    }
-
-    let mut vec = Vec::new();
-    vec.push(1);
-    // Trigger the collection of objects (young generation)
-    drop(vec);
-
-    std::thread::sleep(std::time::Duration::from_secs(100));
-
-    // Continue with your monitoring and analysis
-    // Rust's ownership system and smart pointers manage memory efficiently
-
-    let duration = start.elapsed();
-
-    println!("Time elapsed for creation of objects is: {:?}", duration);
+    TestSuite4::test1();
+    TestSuite4::test2();
+    TestSuite4::test3();
+    TestSuite4::test4();
+    TestSuite4::test5();
+    TestSuite4::test6();
+    TestSuite4::test7();
+    TestSuite4::test8();
 }
