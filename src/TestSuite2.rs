@@ -147,7 +147,7 @@ pub(crate) fn test7() {
 }
 
 
-fn test8() {
+pub(crate) fn test8() {
     let mut value: usize;
 
     // Start the timer

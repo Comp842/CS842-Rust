@@ -27,6 +27,7 @@ fn main() {
     TestSuite2::test5();
     TestSuite2::test6();
     TestSuite2::test7();
+    TestSuite2::test8();
 
     TestSuite3::test1();
     TestSuite3::test2();
