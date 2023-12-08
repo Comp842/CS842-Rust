@@ -1,6 +1,7 @@
 use std::collections::LinkedList;
 use crate::SimpleLinkedList::SimpleLinkedList;
 use crate::Timer::Timer;
+use memory_stats::memory_stats;
 
 pub(crate) fn test1() {
     // Start the timer
@@ -193,9 +194,25 @@ pub(crate) fn test8() {
     for _ in 0..num_loops {
         let mut list = LinkedList::new();
 
+        // if let Some(usage) = memory_stats() {
+        //     println!("{}", usage.virtual_mem);
+        // } else {
+        //     println!("Couldn't get the current memory usage :(");
+        // }
         for i in 0..num_objects {
             list.push_back(i);
+            if let Some(usage) = memory_stats() {
+                println!("{}", usage.virtual_mem);
+            } else {
+                println!("Couldn't get the current memory usage :(");
+            }
+
         }
+        // if let Some(usage) = memory_stats() {
+        //     println!("{}", usage.virtual_mem);
+        // } else {
+        //     println!("Couldn't get the current memory usage :(");
+        // }
     }
 
     // Stop the timer and calculate the elapsed time

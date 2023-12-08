@@ -1,4 +1,5 @@
 use crate::Timer::Timer;
+use memory_stats::memory_stats;
 
 // Number of assignments
 const NUM_ASSIGNMENTS: usize = 1_000_000_000;
@@ -9,11 +10,24 @@ pub(crate) fn test1() {
 
     // Start the timer
     let timer = Timer::start_timer();
+    // for i in 0..200{
+    //     if let Some(usage) = memory_stats() {
+    //         println!("{}", usage.virtual_mem);
+    //     } else {
+    //         println!("Couldn't get the current memory usage :(");
+    //     }
 
-    // Perform the assignments
-    for i in 0..NUM_ASSIGNMENTS {
-        value = i;
-    }
+        // Perform the assignments
+        for i in 0..NUM_ASSIGNMENTS {
+            value = i;
+        }
+
+        // if let Some(usage) = memory_stats() {
+        //     println!("{}", usage.virtual_mem);
+        // } else {
+        //     println!("Couldn't get the current memory usage :(");
+        // }
+    // }
 
     // Stop the timer and calculate the elapsed time
     let elapsed_seconds = timer.get_time_seconds();

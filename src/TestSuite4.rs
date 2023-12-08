@@ -3,6 +3,7 @@ use rand::Rng;
 use crate::AdvancedLinkedList::AdvancedLinkedList;
 use crate::TestObject::TestObject;
 use crate::Timer::Timer;
+use memory_stats::memory_stats;
 
 pub(crate) fn test1() {
     // Start the timer
@@ -206,7 +207,11 @@ pub(crate) fn test8() {
 
     for _ in 0..num_loops {
         let mut list = LinkedList::new();
-
+        // if let Some(usage) = memory_stats() {
+        //     println!("{}", usage.virtual_mem);
+        // } else {
+        //     println!("Couldn't get the current memory usage :(");
+        // }
         for i in 0..num_objects {
             let mut rng = rand::thread_rng();
             let num_of_objects = rng.gen_range(1..=5);
@@ -214,6 +219,11 @@ pub(crate) fn test8() {
                 list.push_back(TestObject::new());
             }
         }
+        // if let Some(usage) = memory_stats() {
+        //     println!("{}", usage.virtual_mem);
+        // } else {
+        //     println!("Couldn't get the current memory usage :(");
+        // }
     }
 
     // Stop the timer and calculate the elapsed time

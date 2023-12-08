@@ -1,5 +1,7 @@
 use crate::TestObject::TestObject;
 use crate::Timer::Timer;
+use memory_stats::memory_stats;
+
 
 pub(crate) fn test1() {
     // Start the timer
@@ -166,12 +168,22 @@ pub(crate) fn test6() {
 
     // Run loop num_loops times
     for _ in 0..num_loops {
+        // if let Some(usage) = memory_stats() {
+        //     println!("{}", usage.virtual_mem);
+        // } else {
+        //     println!("Couldn't get the current memory usage :(");
+        // }
         let mut arr_of_test_obj = Vec::with_capacity(num_objects);
 
         // Create and discard short-lived objects (young generation)
         for _ in 0..num_objects {
             arr_of_test_obj.push(TestObject::new());
         }
+        // if let Some(usage) = memory_stats() {
+        //     println!("{}", usage.virtual_mem);
+        // } else {
+        //     println!("Couldn't get the current memory usage :(");
+        // }
 
         // Ensure that the vector is dropped, effectively discarding the objects
         arr_of_test_obj.clear();

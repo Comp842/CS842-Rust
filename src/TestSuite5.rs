@@ -3,6 +3,8 @@ use rand::Rng;
 use crate::AdvancedLinkedList::AdvancedLinkedList;
 use crate::TestObject::TestObject;
 use crate::Timer::Timer;
+use memory_stats::memory_stats;
+
 
 pub(crate) fn test1() {
     // Start the timer
@@ -186,6 +188,11 @@ pub(crate) fn test8() {
     let num_objects = 10000000;
     let num_loops = 100;
 
+    // if let Some(usage) = memory_stats() {
+    //     println!("{}", usage.virtual_mem);
+    // } else {
+    //     println!("Couldn't get the current memory usage :(");
+    // }
     for _ in 0..num_loops {
         let mut ts = BTreeSet::new();
 
@@ -193,6 +200,11 @@ pub(crate) fn test8() {
             ts.insert(i);
         }
     }
+    // if let Some(usage) = memory_stats() {
+    //     println!("{}", usage.virtual_mem);
+    // } else {
+    //     println!("Couldn't get the current memory usage :(");
+    // }
 
     // Stop the timer and calculate the elapsed time
     let elapsed_seconds = timer.get_time_seconds();
