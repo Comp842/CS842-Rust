@@ -6,6 +6,7 @@ mod Timer;
 mod TestSuite2;
 mod TestSuite3;
 mod TestSuite4;
+mod TestSuite5;
 
 use std::mem;
 use std::rc::Rc;
@@ -47,4 +48,15 @@ fn main() {
     TestSuite4::test6();
     TestSuite4::test7();
     TestSuite4::test8();
+
+    TestSuite5::test10();
+    TestSuite5::test9();
+    TestSuite5::test8();
+    TestSuite5::test7();
+    TestSuite5::test6();
+    TestSuite5::test5();
+    TestSuite5::test4();
+    TestSuite5::test3();
+    TestSuite5::test2();
+    TestSuite5::test1();
 }
