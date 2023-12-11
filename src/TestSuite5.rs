@@ -188,23 +188,25 @@ pub(crate) fn test8() {
     let num_objects = 10000000;
     let num_loops = 100;
 
-    // if let Some(usage) = memory_stats() {
-    //     println!("{}", usage.virtual_mem);
-    // } else {
-    //     println!("Couldn't get the current memory usage :(");
-    // }
+
     for _ in 0..num_loops {
+        // if let Some(usage) = memory_stats() {
+        //     println!("{}", usage.virtual_mem);
+        // } else {
+        //     println!("Couldn't get the current memory usage :(");
+        // }
         let mut ts = BTreeSet::new();
 
         for i in 0..num_objects {
             ts.insert(i);
         }
+        // if let Some(usage) = memory_stats() {
+        //     println!("{}", usage.virtual_mem);
+        // } else {
+        //     println!("Couldn't get the current memory usage :(");
+        // }
     }
-    // if let Some(usage) = memory_stats() {
-    //     println!("{}", usage.virtual_mem);
-    // } else {
-    //     println!("Couldn't get the current memory usage :(");
-    // }
+
 
     // Stop the timer and calculate the elapsed time
     let elapsed_seconds = timer.get_time_seconds();
